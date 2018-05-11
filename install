@@ -3,6 +3,7 @@
 apt-get update
 apt-get install less locales ssh sudo flash-kernel -y
 mv /flash-kernel-db /etc/flash-kernel/db
+mv /flash-kernel-cfg /etc/default/flash-kernel
 apt-get install -t stretch-backports linux-image-armmp -y
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo root:1234 | chpasswd
