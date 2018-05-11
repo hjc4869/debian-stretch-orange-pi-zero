@@ -1,0 +1,6 @@
+Machine: Xunlong Orange Pi Zero
+Kernel-Flavors: armmp armmp-lpae
+Boot-Script-Path: /boot/boot.scr
+DTB-Id: sun8i-h2-plus-orangepi-zero.dtb
+U-Boot-Script-Name: bootscr.sunxi
+Required-Packages: u-boot-tools
