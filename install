@@ -3,6 +3,8 @@ set -e
 
 apt-get update
 apt-get install less locales ssh sudo flash-kernel -y
+echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+locale-gen
 mv /flash-kernel-db /etc/flash-kernel/db
 mv /flash-kernel-cfg /etc/default/flash-kernel
 apt-get install -t stretch-backports linux-image-armmp -y
