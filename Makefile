@@ -11,7 +11,7 @@ all:
 image:
 	fallocate -l 2G ./image
 	/sbin/sfdisk ./image < partitions
-	mkdir root
+	mkdir -p ./root
 	sudo losetup -o 10485760 --sizelimit 1677721600 /dev/loop1 image
 	sudo mkfs.ext4 -L root -U 84a32ad9-0701-4fcc-8d37-5589451a86b2 /dev/loop1
 	sudo mount /dev/loop1 ./root
