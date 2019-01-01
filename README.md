@@ -2,11 +2,14 @@
 
 To build the image, you need an armhf/arm64 Debian system, and execute
 
+    # For non-ARM system, install qemu-user-static and binfmt-support
+    apt install qemu-user-static binfmt-support
+    apt install debootstrap
     make MIRROR=http://ftp.us.debian.org/debian/
     
 (Replace the url with whatever mirror you want)  
 
-An image with Orange Pi Zero u-boot (u-boot-sunxi-with-spl.bin binary is from Debian Buster `u-boot-sunxi` package), Debian 9 rootfs and backport kernel will be created.
+An image with Orange Pi Zero u-boot, Debian 9 rootfs and backport kernel will be created.
 
 The setup process has the following extra steps:
 

@@ -17,7 +17,13 @@ image:
 	sudo mount /dev/loop1 ./root
 
 debootstrap:
+ifneq (,$(filter $(shell uname -m),arm aarch64))
 	sudo debootstrap --arch armhf stretch root $(MIRROR)
+else
+	sudo debootstrap --foreign --arch armhf stretch root $(MIRROR)
+	sudo cp $(shell which qemu-arm-static) root/usr/bin
+	sudo chroot root/ /debootstrap/debootstrap --second-stage
+endif
 
 prepare:
 	echo "deb $(MIRROR) stretch main non-free contrib\ndeb $(MIRROR) stretch-backports main non-free contrib" | sudo tee ./root/etc/apt/sources.list
@@ -33,11 +39,20 @@ setup:
 	sudo cp install ./root/install
 	sudo chroot ./root ./install
 	sudo rm ./root/install
-	
+	sudo rm -f ./root/usr/bin/qemu-arm-static
+	sudo rm ./root/etc/ssh/ssh_host*
+	cp ./root/usr/lib/u-boot/orangepi_zero/u-boot-sunxi-with-spl.bin ./
+
 cleanup:
 	sync
-	sudo umount ./root
-	sudo losetup -d /dev/loop1
+	sudo umount ./root || true
+	sudo losetup -d /dev/loop1 || true
 
 firmware-install:
 	dd if=./u-boot-sunxi-with-spl.bin of=./image bs=1k seek=8 oflag=sync conv=notrunc
+	rm ./u-boot-sunxi-with-spl.bin
+
+clean:
+	make cleanup
+	sudo rm -rf ./root
+	sudo rm -rf ./image

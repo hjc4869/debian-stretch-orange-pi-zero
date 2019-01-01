@@ -2,7 +2,7 @@
 set -e
 
 apt-get update
-apt-get install less locales ssh sudo flash-kernel -y
+apt-get install less locales ssh sudo flash-kernel u-boot-sunxi -y
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen
 mv /flash-kernel-db /etc/flash-kernel/db
