@@ -16,3 +16,8 @@ The setup process has the following extra steps:
 1. DHCP is enabled on eth0.
 1. root password is set to 1234.
 1. OpenSSH server is installed and enabled with root login allowed.
+
+## Daily build
+[![Build status](https://dev.azure.com/jingchuan/debian-images/_apis/build/status/Orange%20Pi%20Zero%20daily%20build)](https://dev.azure.com/jingchuan/debian-images/_build/latest?definitionId=2)
+
+Check on GitHub release page and [Azure DevOps](https://dev.azure.com/jingchuan/debian-images/_build/index?definitionId=2)
