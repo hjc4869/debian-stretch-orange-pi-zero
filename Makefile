@@ -40,7 +40,6 @@ setup:
 	sudo chroot ./root ./install
 	sudo rm ./root/install
 	sudo rm -f ./root/usr/bin/qemu-arm-static
-	sudo rm ./root/etc/ssh/ssh_host*
 	cp ./root/usr/lib/u-boot/orangepi_zero/u-boot-sunxi-with-spl.bin ./
 
 cleanup:
