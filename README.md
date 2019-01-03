@@ -17,6 +17,11 @@ The setup process has the following extra steps:
 1. root password is set to 1234.
 1. OpenSSH server is installed and enabled with root login allowed.
 
+The following actions are recommended after deploying the image
+
+1. If you download a pre-built image, **re-generate OpenSSH host keys**, especially when you plan to use SSH to connect to the system over public Internet.
+1. Resize the partition to fit your SD card
+
 ## Daily build
 [![Build status](https://dev.azure.com/jingchuan/debian-images/_apis/build/status/Orange%20Pi%20Zero%20daily%20build)](https://dev.azure.com/jingchuan/debian-images/_build/latest?definitionId=2)
 
