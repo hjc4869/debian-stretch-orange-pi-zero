@@ -1,4 +1,4 @@
 label: dos
 device: image
 
-start=10M, size=1600M, type=83, bootable
+start=10M, size=4096M, type=83, bootable
